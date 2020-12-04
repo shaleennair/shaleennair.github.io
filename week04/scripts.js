@@ -3,5 +3,5 @@ function transformUppercase(){
     a.value = a.value.toUppercase();
 }
 
-let elUsername = document.getElementById("namaPegguna");
+let elUsername = document.getElementById("namaPengguna");
 elUsername.addEventListener("keyup", transformUppercase);
