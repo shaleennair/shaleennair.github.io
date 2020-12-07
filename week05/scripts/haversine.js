@@ -43,7 +43,7 @@ elLocate.addEventListener("click", function() {
             let elSunway = document.getElementById("sunway");
             let elKlcc = document.getElementById("klcc");
 
-            let userLat = position.coords.latitiude;
+            let userLat = position.coords.latitude;
             let userLong = position.coords.longitude;
 
             let distances = calculateDistances(userLat, userLong);
