@@ -12,15 +12,15 @@ function getRandomUser() {
             let elAddress = document.getElementById("address");
             let elEmail = document.getElementById("email");
 
-            //testetst
+            //test
 
             elFirstName.innerHTML = data.results[0].name.first;
             elUserImage.src = data.results[0].picture.large;
             elUserImage.title = data.results[0].name.first + " " + data.result[0].name.elLastName
-            elLasttName.innerHTML = data.results[0].name.last;
+            elLastName.innerHTML = data.results[0].name.last;
             elPhone.innerHTML = data.results[0].phone;
             elEmail.innerHTML = data.results[0].email;
-            elAddress.innerHTML = data.results[0].location.postcode + ", " +
+            elAddress.innerHTML = data.results[0].location.street.number + ", " +
                 data.results[0].location.street.name + ", <br>"
                 + data.results[0].location.postcode + " "
                 + data.results[0].location.city + ", <br>"
