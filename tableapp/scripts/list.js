@@ -44,3 +44,13 @@ window.addEventListener("load", function () {
         GetBookings();
     });
 })
+
+function DeleteBooking(id) {
+    let url = 'https://api.sheety.co/08659f8d3caa9d98dd13a805222492d5/bookingApp/bookings/' + id;
+    fetch(url, {
+        method: 'DELETE',
+    })
+        .then((response) => {
+            location.reload();
+        });
+}
