@@ -5,8 +5,8 @@ function GetBookings() {
         .then(json => {
             //Do something with the data
             console.log(json.bookings);
-            let bookingList = document.getElementById("bookingList");
-            bookingList.innerHTML = "";
+            let bookingList = document.getElementById("booking-list");
+            let bookingIds = [];
 
             let jsonDiv = document.getElementById("json");
             jsonDiv.innerHTML = "";
@@ -17,9 +17,34 @@ function GetBookings() {
                 let gEmail = json.bookings[i].email;
                 let gPax = json.bookings[i].pax;
                 let gId = json.bookings[i].id;
+                let gRemarks = json.bookings[i].remarks;
+                let buttonId = "delete" + gId;
 
-                bookingList.innerHTML += gId + "-" + gName + ", " +
-                    gEmail + ", pax:" + gPax + "<br>";
+                let row = bookingList.insertRow(bookingList.rows.length);
+                row.insertCell(0).innerHTML = gId;
+                row.insertCell(1).innerHTML = gName;
+                row.insertCell(2).innerHTML = gEmail;
+                row.insertCell(3).innerHTML = gPax;
+                row.insertCell(4).innerHTML = gRemarks;
+                row.insertCell(5).innerHTML = "<button id='" +
+                    buttonId + "' class='btn-danger'>Delete</button>";
+
+                bookingIds.push(buttonId);
+
+            }
+
+            for (let j = 0; j < bookingIds.length; j++) {
+                let el = document.getElementById(bookingId[j]);
+                el.addEventListener("click", function () {
+                    let theId = bookingId[j].replace("delete", "");
+                    alert(theId);
+                });
             }
         });
 }
+
+window.addEventListener("load", function () {
+    document.getElementById("refreshList").addEventListener("click", function () {
+        GetBookings();
+    });
+})
